@@ -1,0 +1,50 @@
+/*
+Tree is:
+             1
+           /   \
+         2       3
+       /   \    /  \
+      4     5  6    7
+Output:
+Binary Tree:
+7361524
+
+
+*/
+
+
+
+
+class Node{
+    int key;
+    Node left,right;
+    public Node(int item){
+        key=item;
+        left=right=null;
+    }
+}
+public class Main
+{
+    Node root;
+    public void travTree(Node node){
+        if(node!=null){
+            travTree(node.right);
+            System.out.print(node.key);
+            travTree(node.left);
+        }
+        
+    }
+	public static void main(String[] args) {
+	    Main tree=new Main();
+	    tree.root=new Node(1);
+	    tree.root.left=new Node(2);
+	    tree.root.right=new Node(3);
+	    tree.root.left.left=new Node(4);
+	    tree.root.left.right=new Node(5);
+	    tree.root.right.left=new Node(6);
+	    tree.root.right.right=new Node(7);
+	    
+		System.out.println("Binary Tree:");
+		tree.travTree(tree.root);
+	}
+}
